@@ -1,5 +1,8 @@
 http://www.peachpit.com/articles/article.aspx?p=1677579&seqNum=3 how to make user reviews
 https://github.com/DevMountain/ecommerce
 https://docs.mongodb.com/ecosystem/use-cases/product-catalog/
-http://codingcyber.org/send-forgotten-password-by-mail-using-php-and-mysql-35/
+http://codingcyber.org/send-forgotten-password-by-mail-using-php-and-mysql-35/ Forgot Password
+http://webreference.com/programming/php/search/index-2.html Search in PHP MySQL
+http://codewithawa.com/posts/image-upload-using-php-and-mysql-database Image Upload
+https://stackoverflow.com/questions/7793009/how-to-retrieve-images-from-mysql-database-and-display-in-an-html-tag Fetch Images
 https://www.youtube.com/watch?v=-tldcpFO6ds
