@@ -1,4 +1,4 @@
-						<?php include('connect.php') ?>
+<?php include('connect.php') ?>
 <!DOCTYPE html>
 <html>
 
@@ -64,8 +64,8 @@
 					<div class="mega-dropdown-menu">
 						<div class="w3ls_vegetables">
 							<ul class="dropdown-menu drp-mnu">
-								<li><a href="login.html">Login</a></li> 
-								<li><a href="login.html">Sign Up</a></li>
+								<li><a href="login.php">Login</a></li> 
+								<li><a href="register.php">Sign Up</a></li>
 							</ul>
 						</div>                  
 					</div>	
@@ -197,7 +197,7 @@
 				  <div class="form">
 				  	<?php include('errors.php'); ?>
 					<h2>Login to your account</h2>
-					<form action="#" method="post">
+					<form action="login.php" method="post">
 					  <input type="email" name="Email" placeholder="Email" required=" ">
 					  <input type="password" name="Password" placeholder="Password" required=" ">
 					  <input type="submit" value="Login" name="log_user">

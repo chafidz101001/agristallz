@@ -1,15 +1,13 @@
 <?php 
   session_start(); 
-
-  if (!isset($_SESSION['email'])) {
-  	$_SESSION['msg'] = "You must log in first";
-  	header('location: login.php');
-  }
+  $db = mysqli_connect('localhost', 'root', '', 'agristall');
   if (isset($_GET['logout_user'])) {
   	session_destroy();
+  	//unset($_SESSION['email']);
   	unset($_SESSION['email']);
-  	header("location: login.php");
+  	header("location: index.php");
   }
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -64,11 +62,16 @@
 						<div class="w3ls_vegetables">
 							<ul class="dropdown-menu drp-mnu">
 								<?php if (isset($_SESSION['email'])) : ?>
-								<li><?php echo $_SESSION['username']; ?></li>
+								<li><?php 
+										$sql = "SELECT nama FROM user WHERE email = '" . $_SESSION['email'] . "'";
+										$result = mysqli_query($db,$sql);
+										//echo $result;
+										$row = mysqli_fetch_array($result);
+										echo $row['nama'];								?></li>
 								<li><a href="index.php?logout_user='1'">Logout</a></li>
 							<?php endif ?>
 
-							<?php if (!isset($_SESSION['username'])) : ?> 
+							<?php if (!isset($_SESSION['email'])) : ?> 
 								<li><a href="login.php">Login</a></li>
 								<li><a href="register.php">Sign Up</a></li>
 							<?php endif ?>

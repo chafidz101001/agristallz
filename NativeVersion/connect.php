@@ -84,13 +84,10 @@ if (isset($_POST['log_user'])) {
 
   if (count($errors) == 0) {
     $password = md5($password);
-    echo $password;
     $query = "SELECT * FROM user WHERE email='$email' AND password='$password'";
     $results = mysqli_query($db, $query);
-    if (mysqli_num_rows($results) == 1) {
-      $username = "SELECT nama FROM user WHERE email='$email' AND password='$password'"
-      $_SESSION['username'] = $username;
-      //echo $_SESSION['email'];
+    if (mysqli_num_rows($results) > 0) {
+      $_SESSION['email'] = $email;
       $_SESSION['success'] = "Anda sudah masuk.";
       header('location: index.php');
       echo $password;
