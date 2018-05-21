@@ -2,3 +2,4 @@ http://www.peachpit.com/articles/article.aspx?p=1677579&seqNum=3 how to make use
 https://github.com/DevMountain/ecommerce
 https://docs.mongodb.com/ecosystem/use-cases/product-catalog/
 http://codingcyber.org/send-forgotten-password-by-mail-using-php-and-mysql-35/
+https://www.youtube.com/watch?v=-tldcpFO6ds
