@@ -1,7 +1,4 @@
 http://www.peachpit.com/articles/article.aspx?p=1677579&seqNum=3 how to make user reviews
 https://github.com/DevMountain/ecommerce
-https://www.mongodb.com/presentations/mongodb-e-commerce-case-study-totsy
-https://groups.google.com/forum/#!topic/mongodb-user/cUFDZUBKpqY
 https://docs.mongodb.com/ecosystem/use-cases/product-catalog/
-https://www.infoq.com/articles/data-model-mongodb
 http://codingcyber.org/send-forgotten-password-by-mail-using-php-and-mysql-35/
