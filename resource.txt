@@ -6,3 +6,4 @@ http://webreference.com/programming/php/search/index-2.html Search in PHP MySQL
 http://codewithawa.com/posts/image-upload-using-php-and-mysql-database Image Upload
 https://stackoverflow.com/questions/7793009/how-to-retrieve-images-from-mysql-database-and-display-in-an-html-tag Fetch Images
 https://www.youtube.com/watch?v=-tldcpFO6ds
+https://stackoverflow.com/questions/23842268/how-to-display-image-from-database-using-php
