@@ -7,3 +7,8 @@ http://codewithawa.com/posts/image-upload-using-php-and-mysql-database Image Upl
 https://stackoverflow.com/questions/7793009/how-to-retrieve-images-from-mysql-database-and-display-in-an-html-tag Fetch Images
 https://www.youtube.com/watch?v=-tldcpFO6ds
 https://stackoverflow.com/questions/23842268/how-to-display-image-from-database-using-php
+
+nambah nih ada template admin yang mungkin bisa digunakan 
+https://athemes.com/collections/free-bootstrap-admin-templates/
+https://colorlib.com/wp/free-bootstrap-admin-dashboard-templates/
+https://startbootstrap.com/template-overviews/sb-admin/
