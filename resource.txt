@@ -9,6 +9,8 @@ https://www.youtube.com/watch?v=-tldcpFO6ds
 https://stackoverflow.com/questions/23842268/how-to-display-image-from-database-using-php
 
 nambah nih ada template admin yang mungkin bisa digunakan 
-https://athemes.com/collections/free-bootstrap-admin-templates/
-https://colorlib.com/wp/free-bootstrap-admin-dashboard-templates/
-https://startbootstrap.com/template-overviews/sb-admin/
+- https://athemes.com/collections/free-bootstrap-admin-templates/
+  # saran gw make yg ini, pilihanya dr web diatas #
+    https://medialoot.com/preview/lumino/index.html 
+- https://colorlib.com/wp/free-bootstrap-admin-dashboard-templates/
+- https://startbootstrap.com/template-overviews/sb-admin/
