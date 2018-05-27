@@ -14,3 +14,5 @@ nambah nih ada template admin yang mungkin bisa digunakan
     https://medialoot.com/preview/lumino/index.html 
 - https://colorlib.com/wp/free-bootstrap-admin-dashboard-templates/
 - https://startbootstrap.com/template-overviews/sb-admin/
+
+http://www.developphp.com/video/PHP#eCommerce-Website-Tutorial
