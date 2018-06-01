@@ -1,0 +1,18 @@
+http://www.peachpit.com/articles/article.aspx?p=1677579&seqNum=3 how to make user reviews
+https://github.com/DevMountain/ecommerce
+https://docs.mongodb.com/ecosystem/use-cases/product-catalog/
+http://codingcyber.org/send-forgotten-password-by-mail-using-php-and-mysql-35/ Forgot Password
+http://webreference.com/programming/php/search/index-2.html Search in PHP MySQL
+http://codewithawa.com/posts/image-upload-using-php-and-mysql-database Image Upload
+https://stackoverflow.com/questions/7793009/how-to-retrieve-images-from-mysql-database-and-display-in-an-html-tag Fetch Images
+https://www.youtube.com/watch?v=-tldcpFO6ds
+https://stackoverflow.com/questions/23842268/how-to-display-image-from-database-using-php
+
+nambah nih ada template admin yang mungkin bisa digunakan 
+- https://athemes.com/collections/free-bootstrap-admin-templates/
+  # saran gw make yg ini, pilihanya dr web diatas #
+    https://medialoot.com/preview/lumino/index.html 
+- https://colorlib.com/wp/free-bootstrap-admin-dashboard-templates/
+- https://startbootstrap.com/template-overviews/sb-admin/
+
+http://www.developphp.com/video/PHP#eCommerce-Website-Tutorial
