@@ -83,10 +83,12 @@ if (isset($_POST['log_user'])) {
     $query = "SELECT * FROM user WHERE email='$email' AND password='$password'";
     $results = mysqli_query($db, $query);
     if (mysqli_num_rows($results) > 0) {
+      session_start();
       $_SESSION['email'] = $email;
       $_SESSION['success'] = "Anda sudah masuk.";
+      #echo $password;
       header('location: index.php');
-      echo $password;
+      
     }else {
       array_push($errors, "Email atau Password Anda Salah!");
     }
