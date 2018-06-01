@@ -1,6 +1,6 @@
 <?php
 
-session_start();
+
 
 $db = mysqli_connect('localhost', 'root', '', 'agristall');
 $errors = array();
@@ -190,4 +190,6 @@ if (isset($_POST['res_pass'])) {
   mysqli_query($db,$query);
 
 }
+
+
 ?>

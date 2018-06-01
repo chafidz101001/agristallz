@@ -1,4 +1,5 @@
 <?php include 'session.php'; ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -81,7 +82,7 @@
 ?>
 	<div class="top-brands">
 		<div class="container">
-			<h3>Tawaran Panas</h3>
+			<h3>Highlight</h3>
 			<div class="agile_top_brands_grids">
 				<?php 
 				for($n=1; $n <= 4; $n++){
@@ -100,66 +101,7 @@
 	</div>
 <!-- //top-brands -->
 <!-- fresh-vegetables -->
-	<div class="fresh-vegetables">
-		<div class="container">
-			<h3>Produk Top</h3>
-			<div class="w3l_fresh_vegetables_grids">
-				<div class="col-md-3 w3l_fresh_vegetables_grid w3l_fresh_vegetables_grid_left">
-					<div class="w3l_fresh_vegetables_grid2">
-						<ul>
-							<li><i class="fa fa-check" aria-hidden="true"></i><a href="Pokok.php">Makanan Pokok</a></li>
-							<li><i class="fa fa-check" aria-hidden="true"></i><a href="Bumbu.php">Bumbu Dapur</a></li>
-							<li><i class="fa fa-check" aria-hidden="true"></i><a href="Sayur.php">Sayur dan Buah</a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-md-9 w3l_fresh_vegetables_grid_right">
-					<div class="col-md-4 w3l_fresh_vegetables_grid">
-						<div class="w3l_fresh_vegetables_grid1">
-							<img src="images/8.jpg" alt=" " class="img-responsive" />
-						</div>
-					</div>
-					<div class="col-md-4 w3l_fresh_vegetables_grid">
-						<div class="w3l_fresh_vegetables_grid1">
-							<div class="w3l_fresh_vegetables_grid1_rel">
-								<img src="images/7.jpg" alt=" " class="img-responsive" />
-								<div class="w3l_fresh_vegetables_grid1_rel_pos">
-									<div class="more m1">
-										<a href="products.html" class="button--saqui button--round-l button--text-thick" data-text="Belanja Sekarang">Belanja Sekarang</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="w3l_fresh_vegetables_grid1_bottom">
-							<img src="images/10.jpg" alt=" " class="img-responsive" />
-							<div class="w3l_fresh_vegetables_grid1_bottom_pos">
-								<h5>Tawaran Speshal</h5>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4 w3l_fresh_vegetables_grid">
-						<div class="w3l_fresh_vegetables_grid1">
-							<img src="images/9.jpg" alt=" " class="img-responsive" />
-						</div>
-						<div class="w3l_fresh_vegetables_grid1_bottom">
-							<img src="images/11.jpg" alt=" " class="img-responsive" />
-						</div>
-					</div>
-					<div class="clearfix"> </div>
-					<div class="agileinfo_move_text">
-						<div class="agileinfo_marquee">
-							<h4>dapatkan! <span class="blink_me">25% Menghemati</span> dalam pemesanan pertama dan dapatkan uang gratis!</h4>
-						</div>
-						<div class="agileinfo_breaking_news">
-							<span> </span>
-						</div>
-						<div class="clearfix"></div>
-					</div>
-				</div>
-				<div class="clearfix"> </div>
-			</div>
-		</div>
-	</div>
+
 <!-- //fresh-vegetables -->
 <!-- footer -->
 	<?php 
