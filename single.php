@@ -96,25 +96,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="w3l_banner_nav_right">
 			
 			<div class="agileinfo_single">
+				<h2><span class="label label-success"><?php echo $rowBar['nama_toko']?></span></h2>
 				<h5><?php echo $rowBar['nama_barang']; ?></h5>
 				<div class="col-md-4 agileinfo_single_left">
 					<img id="example" src="getImage.php?id=<?php echo $id ?>" alt=" " class="img-responsive" />
 				</div>
+
 				<div class="col-md-8 agileinfo_single_right">
-					<div class="rating1">
-						<span class="starRating">
-							<input id="rating5" type="radio" name="rating" value="5">
-							<label for="rating5">5</label>
-							<input id="rating4" type="radio" name="rating" value="4">
-							<label for="rating4">4</label>
-							<input id="rating3" type="radio" name="rating" value="3" checked>
-							<label for="rating3">3</label>
-							<input id="rating2" type="radio" name="rating" value="2">
-							<label for="rating2">2</label>
-							<input id="rating1" type="radio" name="rating" value="1">
-							<label for="rating1">1</label>
-						</span>
-					</div>
+					<div class="w3agile_description">
+						<h4>Kesegaran</h4>
+						<p><?php echo $rowBar['fresh']; ?></p>
+					</div>		
 					<div class="w3agile_description">
 						<h4>Deskripsi</h4>
 						<p><?php echo $rowBar['deskripsi']; ?></p>
@@ -124,20 +116,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<h4>Rp <?php echo $rowBar['harga_barang']; ?> </h4>
 						</div>
 						<div class="snipcart-details agileinfo_single_right_details">
-							<form action="#" method="post">
-								<fieldset>
-									<input type="hidden" name="cmd" value="_cart" />
-									<input type="hidden" name="add" value="1" />
-									<input type="hidden" name="business" value=" " />
-									<input type="hidden" name="item_name" value="pulao basmati rice" />
-									<input type="hidden" name="amount" value="21.00" />
-									<input type="hidden" name="discount_amount" value="1.00" />
-									<input type="hidden" name="currency_code" value="USD" />
-									<input type="hidden" name="return" value=" " />
-									<input type="hidden" name="cancel_return" value=" " />
-									<input type="submit" name="submit" value="Beli" class="button" />
-								</fieldset>
-							</form>
+							<a href="checkout.php?id=<?php echo $id ?>"> <input type="submit" name="submit" value="Beli" class="button" />
+							</a></form>
 						</div>
 					</div>
 				</div>
