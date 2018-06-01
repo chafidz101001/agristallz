@@ -1,14 +1,29 @@
 <?php 
-	$id = $_GET['idUser'];
+	$id = $_GET['id'];
 	#echo $id;
 	include "session.php";
 	include "connect.php";
-	    
+	$query = "SELECT * FROM pembelian WHERE id_pembelian = $id";
+					    $result = mysqli_query($db, $query);
+					    $rowPem = mysqli_fetch_array($result);
+	$namaToko = $rowPem['nama_toko'];
+	$idBar = $rowPem['id_barang'];
+	#echo $namaToko;
+	$query2 = "SELECT * FROM user WHERE email = '" . $_SESSION['email'] . "'";
+						$result2 = mysqli_query($db, $query2);
+					    $rowUse = mysqli_fetch_array($result2);
+	$query = "SELECT * FROM barang WHERE id_barang = $idBar";
+					    $result = mysqli_query($db, $query);
+					    $rowBar = mysqli_fetch_array($result);
+	
+	$query3 = "SELECT * FROM toko WHERE nama_toko = '$namaToko'";
+						$result3 = mysqli_query($db, $query3);
+					    $rowTok = mysqli_fetch_array($result3);
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-<title>Riwayat Pembelian</title>
+<title>Detail Pembelian</title>
 <!-- for-mobile-apps -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -36,7 +51,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="container">
 			<ul>
 				<li><i class="fa fa-home" aria-hidden="true"></i><a href="index.php">Home</a><span>|</span></li>
-				<li>Pembelian</li>
+				<li>Checkout</li>
 			</ul>
 		</div>
 	</div>
@@ -59,7 +74,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<ul class="nav navbar-nav nav_1">
 						<li><a href="Pokok.php">Makanan Pokok</a></li>
 						<li><a href="Bumbu.php">Bumbu dapur</a></li>
-						<li><a href="Sayur.phdwp">Sayur dan Buah</a></li>
+										<li><a href="Sayur.php">Sayur dan Buah</a></li>
 									</ul>
 								</div>
 							</div>
@@ -70,65 +85,95 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="w3l_banner_nav_right">
 <!-- about -->
 		<div class="privacy about">
-			<h3>Pem<span>belian</span></h3>
+			<h3>Konfir<span>masi</span></h3>
 			
 	      <div class="checkout-right">
 					
 				<table class="timetable_sub">
 					<thead>
 						<tr>
-							<th>Produk Id</th>	
+							<th>ID Produk</th>	
 							<th>Produk</th>
 							<th>Nama Produk</th>
-							<th>Detail</th>
+							<th>Total Harga</th>
 							
 						</tr>
 					</thead>
-					<tbody>
+					<tbody><tr class="rem1">
+						<td class="invert"><?php echo $id ?></td>
+						<td class="invert-image"><a href="single.php?id=<?php echo $id?>"><img src="getImage.php?id=<?php echo $id ?>" alt=" " class="img-responsive"></a></td>
+						<td class="invert"><?php echo $rowBar['nama_barang'] ?></td>
 						
-				<?php
-						$query = "SELECT * FROM pembelian WHERE id_user = $id";
-					    $result = mysqli_query($db, $query);
-
-					    while($rowPem = mysqli_fetch_array($result)){
-							
-							$namaToko = $rowPem['nama_toko'];
-							$idBarang = $rowPem['id_barang'];
-							$idPem = $rowPem['id_pembelian'];
-							
-							#echo $namaToko;
-							$query2 = "SELECT * FROM barang WHERE id_barang = $idBarang";
-												$result2 = mysqli_query($db, $query2);
-											    $rowBar = mysqli_fetch_array($result2);
-							$idBarang = $rowPem['id_barang'];
-							$query3 = "SELECT * FROM toko WHERE nama_toko = '$namaToko'";
-												$result3 = mysqli_query($db, $query3);
-											    $rowTok = mysqli_fetch_array($result3);
-							$namaBarang = $rowBar['nama_barang'];
-							$total = $rowPem['total'];
-				?>
-				<tr class="rem1">
-						<td class="invert"><?php echo $rowPem['id_barang']; ?></td>
-						<td class="invert-image"><img src="getImage.php?id=<?php echo $idBarang; ?>" alt="" > </td>
-						<td class="invert"><?php echo $namaBarang; ?></td>
-						<td class="invert"><a href="histroy_detail.php?id=<?php echo $idPem; ?>"><h2><span class="label label-primary">Detail</span></h2></a></td>
-				</tr>
-				<?php
-					}
-				?>
-			
-			</tbody>
-			</table>
+						<td class="invert">Rp <?php echo $rowPem['total'] ?></td>
+					
+					</tr>
+				
+				</tbody></table>
 			</div>
+			<div class="checkout-left">	
+				<div class="col-md-4 checkout-left-basket">
+					<h4><?php echo $namaToko ?></h4>
+					<ul>
+						<li>Kontak <i><br></i> <span><font color='black'><?php echo $rowTok['kontak']?></font> </span></li>
+						<li>Alamat Toko <i><br></i> <span><font color='black'><?php echo $rowTok['alamat_toko']?></span> </span></li>
+						
+					</ul><br>
+					<h5><center><font color=#ff6666 size=3>Tolong Hubungi Toko Tersebut untuk Saling Konfirmasi</font></center></h5>
+				</div>
+				<div class="col-md-8 address_form_agile">
+					  <h4>Informasi Anda</h4>
+				<div class="form">
+				<form action="checkout.php?id=<?php echo $id; ?>" method="post">
+									<section class="creditly-wrapper wthree, w3_agileits_wrapper">
+										<div class="information-wrapper">
+											<div class="first-row form-group">
+												<div class="controls">
+													<label class="control-label">Nama: </label>
+													<input readonly="" class="billing-address-name form-control" type="text" name="name" value="<?php echo $rowUse['nama']; ?>">
+												</div>
+												<div class="w3_agileits_card_number_grids">
+													<div class="w3_agileits_card_number_grid_left">
+														<div class="controls">
+															<label class="control-label">Nomor Telefon:</label>
+														    <input readonly="" class="form-control" type="text" value="<?php echo $rowUse['no_tlp'];?>">
+														</div>
+													</div>
+
+													<div class="w3_agileits_card_number_grid_right">
+														<div class="controls">
+															<label class="control-label">Alamat Pengiriman: </label>
+														 <input readonly="" class="form-control" type="text" placeholder="Landmark" value="<?php echo $rowUse['alamat'];?>">
+														</div>
+													</div>
+													<div class="clear"> </div>
+												</div>
+												<div class="w3_agileits_card_number_grids">
+													<div class="w3_agileits_card_number_grid_left">
+														<div class="controls">
+															<label class="control-label">Jumlah yang Dibeli (Kg):</label>
+														    <input required="" class="form-control" type="text" value=<?php echo $rowPem['jumlah']; ?> name="kuantitas" readonly="">
+														</div>
+													</div>
+												
+											</div>
+											
+									</section>
+								</form>
+						</div>			
+					</div>
+			
 				<div class="clearfix"> </div>
 				
 			</div>
 
 		</div>
+
 <!-- //about -->
 		</div>
 		<div class="clearfix"></div>
 	</div>
+	<center><h1><a href="history.php?idUser=<?php echo $rowPem['id_user']; ?>"><span class="label label-primary">Kembali</span></a></h1></center>
+	<br> <br>
 <!-- //banner -->
 
 
