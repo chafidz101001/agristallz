@@ -1,4 +1,4 @@
-<?php 
+<?php
 	$id = $_GET['id'];
 	#echo $id;
 	include "session.php";
@@ -15,7 +15,7 @@
 	$query = "SELECT * FROM barang WHERE id_barang = $idBar";
 					    $result = mysqli_query($db, $query);
 					    $rowBar = mysqli_fetch_array($result);
-	
+
 	$query3 = "SELECT * FROM toko WHERE nama_toko = '$namaToko'";
 						$result3 = mysqli_query($db, $query3);
 					    $rowTok = mysqli_fetch_array($result3);
@@ -27,7 +27,7 @@
 <!-- for-mobile-apps -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Grocery Store Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+<meta name="keywords" content="Grocery Store Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
 		function hideURLbar(){ window.scrollTo(0,1); } </script>
@@ -35,14 +35,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
 <!-- font-awesome icons -->
-<link href="css/font-awesome.css" rel="stylesheet" type="text/css" media="all" /> 
+<link href="css/font-awesome.css" rel="stylesheet" type="text/css" media="all" />
 <!-- //font-awesome icons -->
 
 <link href='//fonts.googleapis.com/css?family=Ubuntu:400,300,300italic,400italic,500,500italic,700,700italic' rel='stylesheet' type='text/css'>
 <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
 
 </head>
-	
+
 <body>
 <!-- header -->
 <?php include "headerNat.php" ?>
@@ -68,7 +68,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				  </button>
-			   </div> 
+			   </div>
 			   <!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
 					<ul class="nav navbar-nav nav_1">
@@ -86,37 +86,37 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- about -->
 		<div class="privacy about">
 			<h3>Konfir<span>masi</span></h3>
-			
+
 	      <div class="checkout-right">
-					
+
 				<table class="timetable_sub">
 					<thead>
 						<tr>
-							<th>ID Produk</th>	
+							<th>ID Produk</th>
 							<th>Produk</th>
 							<th>Nama Produk</th>
 							<th>Total Harga</th>
-							
+
 						</tr>
 					</thead>
 					<tbody><tr class="rem1">
 						<td class="invert"><?php echo $id ?></td>
-						<td class="invert-image"><a href="single.php?id=<?php echo $id?>"><img src="getImage.php?id=<?php echo $id ?>" alt=" " class="img-responsive"></a></td>
+						<td class="invert-image"><a href="single.php?id=<?php echo $id?>"><img src="getImage.php?id=<?php echo $idBar ?>" alt=" " class="img-responsive"></a></td>
 						<td class="invert"><?php echo $rowBar['nama_barang'] ?></td>
-						
+
 						<td class="invert">Rp <?php echo $rowPem['total'] ?></td>
-					
+
 					</tr>
-				
+
 				</tbody></table>
 			</div>
-			<div class="checkout-left">	
+			<div class="checkout-left">
 				<div class="col-md-4 checkout-left-basket">
 					<h4><?php echo $namaToko ?></h4>
 					<ul>
 						<li>Kontak <i><br></i> <span><font color='black'><?php echo $rowTok['kontak']?></font> </span></li>
 						<li>Alamat Toko <i><br></i> <span><font color='black'><?php echo $rowTok['alamat_toko']?></span> </span></li>
-						
+
 					</ul><br>
 					<h5><center><font color=#ff6666 size=3>Tolong Hubungi Toko Tersebut untuk Saling Konfirmasi</font></center></h5>
 				</div>
@@ -154,16 +154,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 														    <input required="" class="form-control" type="text" value=<?php echo $rowPem['jumlah']; ?> name="kuantitas" readonly="">
 														</div>
 													</div>
-												
+
 											</div>
-											
+
 									</section>
 								</form>
-						</div>			
+						</div>
 					</div>
-			
+
 				<div class="clearfix"> </div>
-				
+
 			</div>
 
 		</div>
@@ -202,7 +202,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									$('.rem1').fadeOut('slow', function(c){
 										$('.rem1').remove();
 									});
-									});	  
+									});
 								});
 						   </script>
 							<script>$(document).ready(function(c) {
@@ -210,7 +210,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									$('.rem2').fadeOut('slow', function(c){
 										$('.rem2').remove();
 									});
-									});	  
+									});
 								});
 						   </script>
 						  	<script>$(document).ready(function(c) {
@@ -218,7 +218,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									$('.rem3').fadeOut('slow', function(c){
 										$('.rem3').remove();
 									});
-									});	  
+									});
 								});
 						   </script>
 
@@ -228,14 +228,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	$(document).ready(function() {
 		 var navoffeset=$(".agileits_header").offset().top;
 		 $(window).scroll(function(){
-			var scrollpos=$(window).scrollTop(); 
+			var scrollpos=$(window).scrollTop();
 			if(scrollpos >=navoffeset){
 				$(".agileits_header").addClass("fixed");
 			}else{
 				$(".agileits_header").removeClass("fixed");
 			}
 		 });
-		 
+
 	});
 	</script>
 <!-- //script-for sticky-nav -->
@@ -244,7 +244,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script type="text/javascript" src="js/easing.js"></script>
 <script type="text/javascript">
 	jQuery(document).ready(function($) {
-		$(".scroll").click(function(event){		
+		$(".scroll").click(function(event){
 			event.preventDefault();
 			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
 		});
@@ -255,14 +255,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="js/bootstrap.min.js"></script>
 <script>
 $(document).ready(function(){
-    $(".dropdown").hover(            
+    $(".dropdown").hover(
         function() {
             $('.dropdown-menu', this).stop( true, true ).slideDown("fast");
-            $(this).toggleClass('open');        
+            $(this).toggleClass('open');
         },
         function() {
             $('.dropdown-menu', this).stop( true, true ).slideUp("fast");
-            $(this).toggleClass('open');       
+            $(this).toggleClass('open');
         }
     );
 });
@@ -275,12 +275,12 @@ $(document).ready(function(){
 				containerID: 'toTop', // fading element id
 				containerHoverID: 'toTopHover', // fading element hover id
 				scrollSpeed: 1200,
-				easingType: 'linear' 
+				easingType: 'linear'
 				};
 			*/
-								
+
 			$().UItoTop({ easingType: 'easeOutQuart' });
-								
+
 			});
 	</script>
 <!-- //here ends scrolling icon -->

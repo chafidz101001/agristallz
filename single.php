@@ -1,4 +1,4 @@
-<?php 
+<?php
 	$id = $_GET['id'];
 	#echo $id;
 	include "session.php";
@@ -94,7 +94,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</nav>
 		</div>
 		<div class="w3l_banner_nav_right">
-			
+
 			<div class="agileinfo_single">
 				<h2><span class="label label-success"><?php echo $rowBar['nama_toko']?></span></h2>
 				<h5><?php echo $rowBar['nama_barang']; ?></h5>
@@ -106,14 +106,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="w3agile_description">
 						<h4>Kesegaran</h4>
 						<p><?php echo $rowBar['fresh']; ?></p>
-					</div>		
+					</div>
 					<div class="w3agile_description">
 						<h4>Deskripsi</h4>
 						<p><?php echo $rowBar['deskripsi']; ?></p>
 					</div>
 					<div class="snipcart-item block">
 						<div class="snipcart-thumb agileinfo_single_right_snipcart">
-							<h4>Rp <?php echo $rowBar['harga_barang']; ?> </h4>
+							<h4>Rp <?php echo $rowBar['harga_barang']; ?>/kg </h4>
 						</div>
 						<div class="snipcart-details agileinfo_single_right_details">
 							<a href="checkout.php?id=<?php echo $id ?>"> <input type="submit" name="submit" value="Beli" class="button" />
