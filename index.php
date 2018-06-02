@@ -91,10 +91,7 @@
 					    $row = mysqli_fetch_array($result);
 						include "productRev.php";
 				}
-
-
 				?>
-
 				<div class="clearfix"> </div>
 			</div>
 		</div>

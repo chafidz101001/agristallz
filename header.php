@@ -1,7 +1,7 @@
 <!-- header -->
 	<div class="agileits_header">
 		<div class="w3l_offers">
-			<a href="products.php">Penawaran Spesial</a>
+			<a href="index.php">Agristall</a>
 		</div>
 		<div class="w3l_search">
 			<form action="#" method="post">
