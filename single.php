@@ -1,4 +1,4 @@
-<?php
+<?php 
 	$id = $_GET['id'];
 	#echo $id;
 	include "session.php";
@@ -94,7 +94,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</nav>
 		</div>
 		<div class="w3l_banner_nav_right">
-
+			
 			<div class="agileinfo_single">
 				<h2><span class="label label-success"><?php echo $rowBar['nama_toko']?></span></h2>
 				<h5><?php echo $rowBar['nama_barang']; ?></h5>
@@ -106,7 +106,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="w3agile_description">
 						<h4>Kesegaran</h4>
 						<p><?php echo $rowBar['fresh']; ?></p>
-					</div>
+					</div>		
 					<div class="w3agile_description">
 						<h4>Deskripsi</h4>
 						<p><?php echo $rowBar['deskripsi']; ?></p>
