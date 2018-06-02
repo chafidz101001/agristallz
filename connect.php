@@ -56,7 +56,12 @@ if (isset($_POST['register_user'])) {
 
   	$query = "INSERT INTO user (nama, password, email, alamat, no_tlp) 
   			  VALUES ('$nama', '$password', '$email', '$alamat', '$no_tlp')";
-  	mysqli_query($db, $query);
+  	 if(mysqli_query($db,$query) ){
+    echo "<script type='text/javascript'> alert('Sukses! Anda telah terdaftar! Silahkan Log In.') </script>";
+  }
+  else{
+    echo "<script type='text/javascript'> alert('Maaf! Hidup Anda gagal.') </script>";
+  }
 
     
     /*
