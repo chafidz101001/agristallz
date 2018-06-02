@@ -4,9 +4,9 @@
 			<a href="products.html">Penawaran Spesial</a>
 		</div>
 		<div class="w3l_search">
-			<form action="#" method="post">
-				<input type="text" name="Product" value="Cari Produk..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Cari Produk...';}" required="">
-				<input type="submit" value=" ">
+			<form action="searchRes.php?go" method="post">
+				<input type="text" name="search" placeholder="Cari Produk..." required="">
+				<input type="submit" value=" " name="search_product">
 			</form>
 		</div>
 		<div class="pull-right" style="padding:2px;">
