@@ -1,7 +1,7 @@
 <!-- header -->
 	<div class="agileits_header">
 		<div class="w3l_offers">
-			<a href="products.html">Penawaran Spesial</a>
+			<a href="products.php">Penawaran Spesial</a>
 		</div>
 		<div class="w3l_search">
 			<form action="#" method="post">
@@ -17,7 +17,7 @@
 						<div class="w3ls_vegetables">
 							<ul class="dropdown-menu drp-mnu">
 								<?php if (isset($_SESSION['email'])) : ?>
-								<li><?php 
+								<li><?php
 										$sql = "SELECT * FROM user WHERE email = '" . $_SESSION['email'] . "'";
 										$result = mysqli_query($db,$sql);
 										//echo $result;
@@ -29,7 +29,7 @@
 								<li><a href="index.php?logout_user='1'">Logout</a></li>
 							<?php endif ?>
 
-							<?php if (!isset($_SESSION['email'])) : ?> 
+							<?php if (!isset($_SESSION['email'])) : ?>
 								<li><a href="login.php">Login</a></li>
 								<li><a href="register.php">Sign Up</a></li>
 							<?php endif ?>
