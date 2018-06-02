@@ -1,7 +1,7 @@
 <!-- header -->
 	<div class="agileits_header">
 		<div class="w3l_offers">
-			<a href="products.html">Penawaran Spesial</a>
+			<a href="products.php">Penawaran Spesial</a>
 		</div>
 		<div class="w3l_search">
 			<form action="#" method="post">
@@ -16,21 +16,20 @@
 					<div class="mega-dropdown-menu">
 						<div class="w3ls_vegetables">
 							<ul class="dropdown-menu drp-mnu">
-								<?php 
-								$sql = "SELECT * FROM user WHERE email = '" . $_SESSION['email'] . "'";
+								<?php if (isset($_SESSION['email'])) : ?>
+								<li><?php
+										$sql = "SELECT * FROM user WHERE email = '" . $_SESSION['email'] . "'";
 										$result = mysqli_query($db,$sql);
 										//echo $result;
 										$row = mysqli_fetch_array($result);
-								if (isset($_SESSION['email'])) : ?>
-								<li><?php 
 										echo $row['nama'];								?></li>
 								<li><a href="profile.php">Profil</a></li>
 								<li><a href="resPassword.php">Ganti Password</a></li>
-								<li><a href="history.php?idUser=<?php echo $row['id_user'] ?>" >Pembelian</a></li>
+								<li><a href="history.php?id_user=<?php echo $row['id_user']; ?>">Pembelian</a></li>
 								<li><a href="index.php?logout_user='1'">Logout</a></li>
 							<?php endif ?>
 
-							<?php if (!isset($_SESSION['email'])) : ?> 
+							<?php if (!isset($_SESSION['email'])) : ?>
 								<li><a href="login.php">Login</a></li>
 								<li><a href="register.php">Sign Up</a></li>
 							<?php endif ?>
