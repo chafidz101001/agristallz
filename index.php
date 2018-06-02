@@ -43,9 +43,9 @@
 <?php include "banner.php" ?>
 <!-- banner -->
 	<div class="banner_bottom">
-			<div class="wthree_banner_bottom_left_grid_sub">
+			<div class="wthree_banner_bottom">
 			</div>
-			<div class="wthree_banner_bottom_left_grid_sub1">
+			<div class="wthree_banner_bottom">
 				<div class="col-md-4 wthree_banner_bottom_left">
 					<div class="wthree_banner_bottom_left_grid">
 						<img src="images/4.jpg" alt=" " class="img-responsive" />
@@ -75,7 +75,7 @@
 			<div class="clearfix"> </div>
 	</div>
 <!-- top-brands -->
-<?php 
+<?php
     $query = "SELECT * FROM barang";
     $result = mysqli_query($db, $query);
     $row = mysqli_fetch_array($result);
@@ -84,17 +84,17 @@
 		<div class="container">
 			<h3>Highlight</h3>
 			<div class="agile_top_brands_grids">
-				<?php 
+				<?php
 				for($n=1; $n <= 4; $n++){
 					 	$query = "SELECT * FROM barang WHERE id_barang = $n";
 					    $result = mysqli_query($db, $query);
 					    $row = mysqli_fetch_array($result);
 						include "productRev.php";
 				}
-				 
+
 
 				?>
-				
+
 				<div class="clearfix"> </div>
 			</div>
 		</div>
@@ -104,8 +104,8 @@
 
 <!-- //fresh-vegetables -->
 <!-- footer -->
-	<?php 
-		include('footer.html') 
+	<?php
+		include('footer.html')
 	?>
 <!-- //footer -->
 <!-- Bootstrap Core JavaScript -->

@@ -3,14 +3,19 @@
 	#echo $id;
 	include "session.php";
 	include "connect.php";
-	$query = "SELECT * FROM barang WHERE id_barang = $id";
+	$query = "SELECT * FROM pembelian WHERE id_pembelian = $id";
 					    $result = mysqli_query($db, $query);
-					    $rowBar = mysqli_fetch_array($result);
-	$namaToko = $rowBar['nama_toko'];
+					    $rowPem = mysqli_fetch_array($result);
+	$namaToko = $rowPem['nama_toko'];
+	$idBar = $rowPem['id_barang'];
 	#echo $namaToko;
 	$query2 = "SELECT * FROM user WHERE email = '" . $_SESSION['email'] . "'";
 						$result2 = mysqli_query($db, $query2);
 					    $rowUse = mysqli_fetch_array($result2);
+	$query = "SELECT * FROM barang WHERE id_barang = $idBar";
+					    $result = mysqli_query($db, $query);
+					    $rowBar = mysqli_fetch_array($result);
+
 	$query3 = "SELECT * FROM toko WHERE nama_toko = '$namaToko'";
 						$result3 = mysqli_query($db, $query3);
 					    $rowTok = mysqli_fetch_array($result3);
@@ -18,7 +23,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Konfirmasi Pembelian</title>
+<title>Detail Pembelian</title>
 <!-- for-mobile-apps -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -90,16 +95,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<th>ID Produk</th>
 							<th>Produk</th>
 							<th>Nama Produk</th>
-							<th>Harga Satuan</th>
+							<th>Total Harga</th>
 
 						</tr>
 					</thead>
 					<tbody><tr class="rem1">
 						<td class="invert"><?php echo $id ?></td>
-						<td class="invert-image"><a href="single.php?id=<?php echo $id?>"><img src="getImage.php?id=<?php echo $id ?>" alt=" " class="img-responsive"></a></td>
+						<td class="invert-image"><a href="single.php?id=<?php echo $id?>"><img src="getImage.php?id=<?php echo $idBar ?>" alt=" " class="img-responsive"></a></td>
 						<td class="invert"><?php echo $rowBar['nama_barang'] ?></td>
 
-						<td class="invert">Rp <?php echo $rowBar['harga_barang'] ?>/kg</td>
+						<td class="invert">Rp <?php echo $rowPem['total'] ?></td>
 
 					</tr>
 
@@ -145,57 +150,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 												<div class="w3_agileits_card_number_grids">
 													<div class="w3_agileits_card_number_grid_left">
 														<div class="controls">
-															<label class="control-label">Jumlah yang Akan Dibeli (Kg):</label>
-														    <input required="" class="form-control" type="text" placeholder="Jumlah" name="kuantitas">
+															<label class="control-label">Jumlah yang Dibeli (Kg):</label>
+														    <input required="" class="form-control" type="text" value=<?php echo $rowPem['jumlah']; ?> name="kuantitas" readonly="">
 														</div>
 													</div>
 
 											</div>
-											<div class="form">
-											<input type="submit" name="konf_barang" class="form" value="Pesan">
-<?php
-	if (isset($_POST['konf_barang'])){
-  $id = $_GET['id'];
-  $query = "SELECT * FROM barang WHERE id_barang = $id";
-              $result = mysqli_query($db, $query);
-              $rowBar = mysqli_fetch_array($result);
-  $namaToko = $rowBar['nama_toko'];
-  #echo $namaToko;
-  $query2 = "SELECT * FROM user WHERE email = '" . $_SESSION['email'] . "'";
-            $result2 = mysqli_query($db, $query2);
-              $rowUse = mysqli_fetch_array($result2);
-  $query3 = "SELECT * FROM toko WHERE nama_toko = '$namaToko'";
-            $result3 = mysqli_query($db, $query3);
-              $rowTok = mysqli_fetch_array($result3);
 
-
-  $idBar = $id;
-  $namaToko = $rowTok['nama_toko'];
-  $idUse = $rowUse['id_user'];
-  $kuantitas = mysqli_real_escape_string($db, $_POST['kuantitas']);
-  $harga = floatval(preg_replace("/[^-0-9\.]/","",$rowBar['harga_barang']));
-  #echo $harga;
-  #$input = '1,000,000';
-  #echo floatval(preg_replace("/[^-0-9\.]/","",$input));
-  $jumlah = floatval($kuantitas);
-  $total = $jumlah * $harga;
-  $totalS = number_format($total);
-  #echo $totalS;
-
-  $query = "INSERT INTO pembelian (id_user, nama_toko, id_barang, jumlah, total)
-          VALUES ('$idUse', '$namaToko', '$idBar', '$kuantitas', '$totalS')";
-  #$alert = '';
-  if(mysqli_query($db,$query) ){
-  	echo "<script type='text/javascript'> alert('Sukses! Pembelian Anda sedang kami proses.') </script>";
-  }
-  else{
-  	echo "<script type='text/javascript'> alert('Maaf! Pembelian gagal.') </script>";
-  }
-
-
-}
-?>
-										</div>
 									</section>
 								</form>
 						</div>
@@ -206,10 +167,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 
 		</div>
+
 <!-- //about -->
 		</div>
 		<div class="clearfix"></div>
 	</div>
+	<center><h1><a href="history.php?idUser=<?php echo $rowPem['id_user']; ?>"><span class="label label-primary">Kembali</span></a></h1></center>
+	<br> <br>
 <!-- //banner -->
 
 

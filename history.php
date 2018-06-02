@@ -1,24 +1,14 @@
 <?php 
-	$id = $_GET['id_user'];
+	$id = $_GET['idUser'];
 	#echo $id;
 	include "session.php";
 	include "connect.php";
-	$query = "SELECT * FROM pembelian WHERE id_user = $id";
-					    $result = mysqli_query($db, $query);
-					    $rowPem = mysqli_fetch_array($result);
-	$namaToko = $rowPem['nama_toko'];
-	#echo $namaToko;
-	$query2 = "SELECT * FROM user WHERE email = '" . $_SESSION['email'] . "'";
-						$result2 = mysqli_query($db, $query2);
-					    $rowUse = mysqli_fetch_array($result2);
-	$query3 = "SELECT * FROM toko WHERE nama_toko = '$namaToko'";
-						$result3 = mysqli_query($db, $query3);
-					    $rowTok = mysqli_fetch_array($result3);
+	    
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-<title>Konfirmasi Pembelian</title>
+<title>Riwayat Pembelian</title>
 <!-- for-mobile-apps -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -69,7 +59,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<ul class="nav navbar-nav nav_1">
 						<li><a href="Pokok.php">Makanan Pokok</a></li>
 						<li><a href="Bumbu.php">Bumbu dapur</a></li>
-										<li><a href="Sayur.phdwp">Sayur dan Buah</a></li>
+						<li><a href="Sayur.phdwp">Sayur dan Buah</a></li>
 									</ul>
 								</div>
 							</div>
@@ -87,118 +77,49 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<table class="timetable_sub">
 					<thead>
 						<tr>
-							<th>No.</th>	
+							<th>Produk Id</th>	
 							<th>Produk</th>
 							<th>Nama Produk</th>
 							<th>Detail</th>
 							
 						</tr>
 					</thead>
-					<?php 
-						while (ad$rowPem = mysqli_fetch_array($result)) : ?>
-					<tbody><tr class="rem1">
-						<td class="invert"><?php echo $id ?></td>
-						<td class="invert-image"><a href="single.php?id=<?php echo $id?>"><img src="getImage.php?id=<?php echo $id ?>" alt=" " class="img-responsive"></a></td>
-						<td class="invert"><?php echo $rowBar['nama_barang'] ?></td>
+					<tbody>
 						
-						<td class="invert">Rp <?php echo $rowBar['harga_barang'] ?></td>
-					
-					</tr>
-				
-				</tbody>
-			<?php endwhile ?>
+				<?php
+						$query = "SELECT * FROM pembelian WHERE id_user = $id";
+					    $result = mysqli_query($db, $query);
+
+					    while($rowPem = mysqli_fetch_array($result)){
+							
+							$namaToko = $rowPem['nama_toko'];
+							$idBarang = $rowPem['id_barang'];
+							$idPem = $rowPem['id_pembelian'];
+							
+							#echo $namaToko;
+							$query2 = "SELECT * FROM barang WHERE id_barang = $idBarang";
+												$result2 = mysqli_query($db, $query2);
+											    $rowBar = mysqli_fetch_array($result2);
+							$idBarang = $rowPem['id_barang'];
+							$query3 = "SELECT * FROM toko WHERE nama_toko = '$namaToko'";
+												$result3 = mysqli_query($db, $query3);
+											    $rowTok = mysqli_fetch_array($result3);
+							$namaBarang = $rowBar['nama_barang'];
+							$total = $rowPem['total'];
+				?>
+				<tr class="rem1">
+						<td class="invert"><?php echo $rowPem['id_barang']; ?></td>
+						<td class="invert-image"><img src="getImage.php?id=<?php echo $idBarang; ?>" alt="" > </td>
+						<td class="invert"><?php echo $namaBarang; ?></td>
+						<td class="invert"><a href="histroy_detail.php?id=<?php echo $idPem; ?>"><h2><span class="label label-primary">Detail</span></h2></a></td>
+				</tr>
+				<?php
+					}
+				?>
+			
+			</tbody>
 			</table>
 			</div>
-			<div class="checkout-left">	
-				<div class="col-md-4 checkout-left-basket">
-					<h4><?php echo $namaToko ?></h4>
-					<ul>
-						<li>Kontak <i><br></i> <span><font color='black'><?php echo $rowTok['kontak']?></font> </span></li>
-						<li>Alamat Toko <i><br></i> <span><font color='black'><?php echo $rowTok['alamat_toko']?></span> </span></li>
-						
-					</ul><br>
-					<h5><center><font color=#ff6666 size=3>Tolong Hubungi Toko Tersebut untuk Saling Konfirmasi</font></center></h5>
-				</div>
-				<div class="col-md-8 address_form_agile">
-					  <h4>Informasi Anda</h4>
-				<div class="form">
-				<form action="done.php" method="post">
-									<section class="creditly-wrapper wthree, w3_agileits_wrapper">
-										<div class="information-wrapper">
-											<div class="first-row form-group">
-												<div class="controls">
-													<label class="control-label">Nama: </label>
-													<input readonly="" class="billing-address-name form-control" type="text" name="name" value="<?php echo $rowUse['nama']; ?>">
-												</div>
-												<div class="w3_agileits_card_number_grids">
-													<div class="w3_agileits_card_number_grid_left">
-														<div class="controls">
-															<label class="control-label">Nomor Telefon:</label>
-														    <input readonly="" class="form-control" type="text" value="<?php echo $rowUse['no_tlp'];?>">
-														</div>
-													</div>
-
-													<div class="w3_agileits_card_number_grid_right">
-														<div class="controls">
-															<label class="control-label">Alamat Pengiriman: </label>
-														 <input readonly="" class="form-control" type="text" placeholder="Landmark" value="<?php echo $rowUse['alamat'];?>">
-														</div>
-													</div>
-													<div class="clear"> </div>
-												</div>
-												<div class="w3_agileits_card_number_grids">
-													<div class="w3_agileits_card_number_grid_left">
-														<div class="controls">
-															<label class="control-label">Jumlah yang Akan Dibeli (Kg):</label>
-														    <input required="" class="form-control" type="text" placeholder="Jumlah" name="kuantitas">
-														</div>
-													</div>
-												
-											</div>
-											<div class="form">
-											<input type="submit" name="konf_barang" class="form" value="Pesan">
-<?php
-	if (isset($_POST['konf_barang'])){
-  $id = $_GET['id'];
-  $query = "SELECT * FROM barang WHERE id_barang = $id";
-              $result = mysqli_query($db, $query);
-              $rowBar = mysqli_fetch_array($result);
-  $namaToko = $rowBar['nama_toko'];
-  #echo $namaToko;
-  $query2 = "SELECT * FROM user WHERE email = '" . $_SESSION['email'] . "'";
-            $result2 = mysqli_query($db, $query2);
-              $rowUse = mysqli_fetch_array($result2);
-  $query3 = "SELECT * FROM toko WHERE nama_toko = '$namaToko'";
-            $result3 = mysqli_query($db, $query3);
-              $rowTok = mysqli_fetch_array($result3);
-
-
-  $idBar = $id;
-  $namaToko = $rowTok['nama_toko'];
-  $idUse = $rowUse['id_user'];
-  $kuantitas = mysqli_real_escape_string($db, $_POST['kuantitas']);
-  $harga = floatval(preg_replace("/[^-0-9\.]/","",$rowBar['harga_barang']));
-  #echo $harga;
-  #$input = '1,000,000';
-  #echo floatval(preg_replace("/[^-0-9\.]/","",$input));
-  $jumlah = floatval($kuantitas);
-  $total = $jumlah * $harga;
-  $totalS = number_format($total);
-  #echo $totalS;
-
-  $query = "INSERT INTO pembelian (id_user, nama_toko, id_barang, jumlah, total) 
-          VALUES ('$idUse', '$namaToko', '$idBar', '$kuantitas', '$totalS')";
-       mysqli_query($db,$query); 
-
-
-}
-?>
-										</div>
-									</section>
-								</form>
-						</div>			
-					</div>
-			
 				<div class="clearfix"> </div>
 				
 			</div>

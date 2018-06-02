@@ -1,4 +1,4 @@
-<?php 
+<?php
 	$id = $n;
 	#echo $id;
 	#include "session.php";
@@ -18,10 +18,10 @@
 											<br>
 											<span class="label label-success"><?php echo $rowBar['nama_toko']?></span>
 											<p><?php echo $row['nama_barang']; ?></p>
-											
-											<h4>Rp <?php echo $row['harga_barang']; ?> </h4>
+
+											<h4>Rp <?php echo $row['harga_barang']; ?>/kg</h4>
 										</div>
-										
+
 									</div>
 								</figure>
 							</div>
