@@ -30,25 +30,25 @@
 					<ul class="slides">
 						<li>
 							<div class="w3l_banner_nav_right_banner">
-								<h3>SPICE <span>UP YOUR</span> FOOD</h3>
+								<h3>MENGGELEGARKAN <span>MASAKAN ANDA</span> DENGAN REMPAH-REMPAH!</h3>
 								<div class="more">
-									<a href="products.html" class="button--saqui button--round-l button--text-thick" data-text="Shop now">BELI!</a>
+									<a href="Bumbu.php" class="button--saqui button--round-l button--text-thick" data-text="Shop now">BELI!</a>
 								</div>
 							</div>
 						</li>
 						<li>
 							<div class="w3l_banner_nav_right_banner1">
-								<h3>Itu <span>namanya</span> Timun.</h3>
+								<h3>SEHAT <span>DENGAN</span> SAYUR DAN BUAH.</h3>
 								<div class="more">
-									<a href="products.html" class="button--saqui button--round-l button--text-thick" data-text="Shop now">BELI!</a>
+									<a href="Sayur.php" class="button--saqui button--round-l button--text-thick" data-text="Shop now">BELI!</a>
 								</div>
 							</div>
 						</li>
 						<li>
 							<div class="w3l_banner_nav_right_banner2">
-								<h3>Bola <i>dan</i> Jus Mangga.</h3>
+								<h3>PENUHI KEBUTUHAN <i>SEHARI-HARI</i> DENGAN MAKANAN POKOK.</h3>
 								<div class="more">
-									<a href="products.html" class="button--saqui button--round-l button--text-thick" data-text="Shop now">BELI!</a>
+									<a href="Pokok.php" class="button--saqui button--round-l button--text-thick" data-text="Shop now">BELI!</a>
 								</div>
 							</div>
 						</li>
