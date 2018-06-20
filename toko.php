@@ -1,15 +1,9 @@
-<?php
-	$nama = $_GET['nama_toko'];
-	#echo $id;
-	include "session.php";
-	$query = "SELECT * FROM toko WHERE nama_toko = $nama";
-					    $result = mysqli_query($db, $query);
-					    $rowBar = mysqli_fetch_array($result);
-?>
+<?php include "session.php"; ?>
+
 <!DOCTYPE html>
 <html>
 <head>
-<title><?php echo $rowBar['nama_toko']  ?> | Agristall</title>
+<title>Bumbu-bumbu</title>
 <!-- for-mobile-apps -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -26,17 +20,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- js -->
 <script src="js/jquery-1.11.1.min.js"></script>
 <!-- //js -->
- <script src='js/okzoom.js'></script>
-  <script>
-    $(function(){
-      $('#example').okzoom({
-        width: 150,
-        height: 150,
-        border: "1px solid black",
-        shadow: "0 0 5px #000"
-      });
-    });
-  </script>
 <link href='//fonts.googleapis.com/css?family=Ubuntu:400,300,300italic,400italic,500,500italic,700,700italic' rel='stylesheet' type='text/css'>
 <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
 <!-- start-smoth-scrolling -->
@@ -55,14 +38,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <body>
 <!-- header -->
-<?php include "headerNat.php"; ?>
+ <?php include 'headerNat.php' ?>
 <!-- //header -->
 <!-- products-breadcrumb -->
 	<div class="products-breadcrumb">
 		<div class="container">
 			<ul>
 				<li><i class="fa fa-home" aria-hidden="true"></i><a href="index.php">Home</a><span>|</span></li>
-				<li><?php echo $rowBar['nama_toko']; ?>	</li>
+				<li>Bumbu Dapur</li>
 			</ul>
 		</div>
 	</div>
@@ -94,29 +77,61 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</nav>
 		</div>
 		<div class="w3l_banner_nav_right">
+			<div class="w3l_banner_nav_right_banner5">
+				<h3>Toko yang Terdapat di Agristall</h3>
+			</div>
+			<div class="w3ls_w3l_banner_nav_right_grid w3ls_w3l_banner_nav_right_grid_veg"><br>
+				<h3 class="w3l_Buah">Toko</h3>
+				<div class="w3ls_w3l_banner_nav_right_grid1 w3ls_w3l_banner_nav_right_grid1_veg">
+					<?php 
+						$query = "SELECT * FROM toko";
+							    $result = mysqli_query($db, $query);
+							    #$c = mysqli_num_rows($result);
+							    #echo $c;
+						while($row = mysqli_fetch_array($result)){ 
+													
+							$id = $row['id_toko'];
+							#	echo $id;
+							#include "session.php";
+							#$query = "SELECT * FROM barang WHERE id_barang = $id";
+						    #$result = mysqli_query($db, $query);
+						    #$rowBar = mysqli_fetch_array($result);
+					?>
+				<div class="col-md-3 top_brand_left">
+					<div class="hover14 column">
+						<div class="agile_top_brand_left_grid">
+							<div class="tag"></div>
+							<div class="agile_top_brand_left_grid1">
+								<figure>
+									<div class="snipcart-item block" >
+										<div class="snipcart-thumb">
+											<a href="singleTok.php?id=<?php echo $id ?>"><img title=" " alt=" " src="getImageTok.php?id=<?php echo $id; ?>" /></a>
+											<br>
+											<p><?php echo $row['nama_toko']; ?></p>
 
-			<div class="agileinfo_single">
-				<h5><?php echo $rowBar['nama_toko']; ?></h5>
+											<h4>Alamat: <br><?php echo $row['alamat_toko']; ?></h4>
+										</div>
 
-				<div class="col-md-8 agileinfo_single_right">
-					<div class="w3agile_description">
-						<h4>Kontak</h4>
-						<p><?php echo $rowBar['kontak']; ?></p>
-					</div>
-					<div class="w3agile_description">
-						<h4>Alamat Toko</h4>
-						<p><?php echo $rowBar['alamat_toko']; ?></p>
+									</div>
+								</figure>
+							</div>
+						</div>
 					</div>
 				</div>
-				<div class="clearfix"> </div>
+						<?php 
+						}
+						?>	
+
+					<div class="clearfix"> </div>
+				</div>
 			</div>
 		</div>
 		<div class="clearfix"></div>
 	</div>
 <!-- //banner -->
-<!-- brands -->
-
 <!-- newsletter -->
+	
+<!-- //newsletter -->
 <!-- footer -->
 	<?php include "footer.html" ?>
 <!-- //footer -->
@@ -147,27 +162,33 @@ $(document).ready(function(){
 				easingType: 'linear'
 				};
 			*/
+
 			$().UItoTop({ easingType: 'easeOutQuart' });
+
 			});
 	</script>
 <!-- //here ends scrolling icon -->
 <script src="js/minicart.js"></script>
 <script>
 		paypal.minicart.render();
+
 		paypal.minicart.cart.on('checkout', function (evt) {
 			var items = this.items(),
 				len = items.length,
 				total = 0,
 				i;
+
 			// Count the number of each item in the cart
 			for (i = 0; i < len; i++) {
 				total += items[i].get('quantity');
 			}
+
 			if (total < 3) {
 				alert('The minimum order quantity is 3. Please add more to your shopping cart before checking out');
 				evt.preventDefault();
 			}
 		});
+
 	</script>
 </body>
 </html>

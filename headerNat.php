@@ -1,7 +1,7 @@
 <!-- header -->
 	<div class="agileits_header">
 		<div class="w3l_offers">
-			<a href="products.html">Penawaran Spesial</a>
+			<a href="index.php">Agristall</a>
 		</div>
 		<div class="w3l_search">
 			<form action="searchRes.php?go" method="post">
@@ -40,6 +40,11 @@
 					</div>
 				</li>
 			</ul>
+		</div>
+		<div class="pull-left" style="padding: 0.2px 15px;">
+		<div class="w3l_offers" >
+			<a href="toko.php">Toko</a>
+		</div>
 		</div>
 		<div class="clearfix"> </div>
 	</div>

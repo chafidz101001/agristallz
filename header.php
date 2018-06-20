@@ -9,6 +9,7 @@
 				<input type="submit" value=" " name="search_product">
 			</form>
 		</div>
+
 		<div class="pull-right" style="padding:2px;">
 			<ul>
 				<li class="dropdown profile_details_drop">
@@ -41,6 +42,11 @@
 					</div>
 				</li>
 			</ul>
+		</div>
+		<div class="pull-left" style="padding: 0.2px 15px;">
+		<div class="w3l_offers" >
+			<a href="toko.php">Toko</a>
+		</div>
 		</div>
 		<div class="clearfix"> </div>
 	</div>
