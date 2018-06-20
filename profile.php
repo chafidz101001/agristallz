@@ -87,7 +87,7 @@
 						
 						
 					</ul>
-					<br><center><h2><a href="editUser.php"><span class="label label-primary">Ubah Data Anda</span></a></h2></center>
+					<br><center><h2><a href="editUser.php"><div class="ubah"><font color= 'white'>Ubah Data Anda</font></span></a></h2></center>
 				</div>
 			</div>
 <br>
