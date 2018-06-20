@@ -34,6 +34,11 @@ if (isset($_POST['register_user'])) {
   if ($password_1 != $password_2) {
 	array_push($errors, "Password Tidak Sama!");
 	}
+  if (ctype_digit($no_tlp)) {
+        echo "";
+  } else {
+        array_push($errors, "Masukkan Nomor Telepon Dengan Benar!");
+  }
 
   // first check the database to make sure 
   // a user does not already exist with the same username and/or email
@@ -42,10 +47,6 @@ if (isset($_POST['register_user'])) {
   $user = mysqli_fetch_assoc($result);
   
   if ($user) { // if user exists
-    if ($user['nama'] === $nama) {
-      array_push($errors, "Anda sudah pernah mendaftar dengan identitas ini!");
-    }
-
     if ($user['email'] === $email) {
       array_push($errors, "Email sudah terpakai!");
     }
@@ -100,43 +101,6 @@ if (isset($_POST['log_user'])) {
   }
 }
 
-if (isset($_POST['edit_user'])) {
-   // receive all input values from the form
-  $nama = mysqli_real_escape_string($db, $_POST['Nama']);
-  $email = mysqli_real_escape_string($db, $_POST['Email']);
-  $alamat = mysqli_real_escape_string($db, $_POST['Alamat']);
-  $no_tlp = mysqli_real_escape_string($db, $_POST['Telp']);
-
-  $sql = "SELECT * FROM user WHERE email = '" . $_SESSION['email'] . "'";
-  $result = mysqli_query($db,$sql);
-  $row = mysqli_fetch_array($result);
-  //echo $result;
-
-
-  $user_check_query = "SELECT * FROM user WHERE nama='$nama' OR email='$email' LIMIT 1";
-  $result = mysqli_query($db, $user_check_query);
-  $user = mysqli_fetch_assoc($result);
-
-    if ($user) { // if user exists
-      if ($user['nama'] === $nama && $user['nama'] !== $row['nama']) {
-      array_push($errors, "Nama Anda Sudah Terpakai");
-      }
-
-      if ($user['email'] === $email && $user['email'] !== $row['email']) {
-        array_push($errors, "Email sudah terpakai!");
-      }
-  }
-
-  if (count($errors) == 0) {
-
-    $query = "UPDATE user SET nama = '$nama', email = '$email', alamat = '$alamat', no_tlp = '$no_tlp' WHERE email = '" . $_SESSION['email'] . "'";
-          
-    mysqli_query($db, $query);
-
-
-  }
-
-}
 
 function generateRandomString($length = 10) {
     $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';

@@ -1,18 +1,11 @@
+
 <?php
-include "connect.php";
-	$email = "tasmanusia@gmail.com";
-	$sql = "SELECT * FROM user WHERE email = '$email'";
-	$res = mysqli_query($db, $sql);
-	$count = mysqli_num_rows($res);
-
-
-$r = mysqli_fetch_assoc($res);
-$password = $r['password'];
-$to = $r['email'];
-$subject = "Your Recovered Password";
- 
-$message = "Please use this password to login " . $password;
-$headers = "From : vivek@codingcyber.com";
-mail($to, $subject, $message, $headers)
-
+$strings = array('08586193462b5');
+foreach ($strings as $testcase) {
+    if (ctype_digit($testcase)) {
+        echo "The string $testcase consists of all digits.\n";
+    } else {
+        echo "The string $testcase does not consist of all digits.\n";
+    }
+}
 ?>

@@ -1,4 +1,5 @@
-						<?php include('connect.php') ?>
+ <?php #087522511666 
+ include('connect.php') ?>
 <!DOCTYPE html>
 <html>
 
@@ -68,7 +69,7 @@
 					  <input type="password" name="Password" placeholder="Password" required=" ">
 					  <input type="password" name="Password_cnf" placeholder="Ketik Ulang Password" required=" ">
 					  <input type="email" name="Email" placeholder="Email" required=" ">
-					  <input type="text" name="Alamat" placeholder="Alamat" required=" ">
+					  <textarea class="bigtext" name="Alamat" placeholder="Alamat" required=" "></textarea>
 					  <input type="text" name="Telefon" placeholder="Telefon" required=" ">
 					  <input type="submit" value="Register" name="register_user">
 					</form>
@@ -77,7 +78,7 @@
 				</div>
 			</div>
 
-			
+			<?php #087822511666 ?>
 		</div>
 <!-- //login -->
 		</div>
