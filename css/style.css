@@ -834,6 +834,27 @@ a.btn.btn-primary {
     -o-transition: 0.5s all;
     -ms-transition: 0.5s all;
 }
+.vertical_post form input[type="submityes"]:hover {
+      background: #0099ff;
+}
+.vertical_post form input[type="submityes"] {
+     background: #84c639;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 10px 0;
+    border: none;
+    font-size: 16px;
+    outline: none;
+    width: 22%;
+    cursor: pointer;
+    font-weight: 600;
+    margin-top: 30px;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+}
 .form-control {
     border-radius: 0;
 }
@@ -1298,10 +1319,9 @@ button.submit.check_out{
 }
 .w3l_banner_nav_right_banner3 h3,.w3l_banner_nav_right_banner4 h3,.w3l_banner_nav_right_banner5 h3,.w3l_banner_nav_right_banner6 h3,.w3l_banner_nav_right_banner7 h3,.w3l_banner_nav_right_banner8 h3,.w3l_banner_nav_right_banner9 h3,.w3l_banner_nav_right_banner10 h3{
 	font-size: 2em;
-    color: #FA1818;
+    color: #fff;
     text-transform: capitalize;
     padding: .3em .5em;
-    background: #fff;
     width: 37%;
     margin-left: 10em;
     font-weight: 300;
@@ -2791,6 +2811,20 @@ input.checkbox:checked:after {
   transition: 0.3s ease;
   font-size:14px;
 }
+.bigtext {
+  outline: none;
+  display: inline-block;
+  width: 100%;
+  height: 100px;
+  border: 1px solid #d9d9d9;
+  margin: 0 0 20px;
+  padding: 10px 15px;
+  box-sizing: border-box;
+  font-wieght: 400;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+  font-size:14px;
+}
 .form-module input[type="text"]:focus,.form-module input[type="password"]:focus,.form-module input[type="email"]:focus {
   border:1px solid #A9A9A9;
   color: #333333;
@@ -2807,8 +2841,37 @@ input.checkbox:checked:after {
   font-weight:bold;
 }
 .form-module input[type="submit"]:hover {
-  background:#FA1818;
+  background:#0099ff;
 }
+.batal {
+  background:#84C639;
+  width: 100%;
+  border: 0;
+  padding: 15px 15px;
+  color: #ffffff;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+  font-size:14px;
+  font-weight:bold;
+}
+.batal:hover {
+  background:#cc0000;
+}
+.ubah {
+  background:#84C639;
+  width: 50%;
+  border: 0;
+  padding: 15px 15px;
+  color: #ffffff;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+  font-size:14px;
+  font-weight:bold;
+}
+.ubah:hover {
+  background:#0099ff;
+}
+
 .form-module .cta {
 	background: #343434;
     width: 100%;
