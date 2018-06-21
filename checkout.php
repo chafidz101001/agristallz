@@ -171,7 +171,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
   $idBar = $id;
   $namaToko = $rowTok['nama_toko'];
+  $namUs = $rowUse['nama'];
+  $alKir = $rowUse['alamat'];
+  $KonUs = $rowUse['no_tlp'];
   $idUse = $rowUse['id_user'];
+  $alTok = $rowTok['alamat_toko'];
+  $konTok = $rowTok['kontak'];
+  $namBar = $rowBar['nama_barang'];
   $kuantitas = mysqli_real_escape_string($db, $_POST['kuantitas']);
   $harga = floatval(preg_replace("/[^-0-9\.]/","",$rowBar['harga_barang']));
   #echo $harga;
@@ -182,8 +188,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   $totalS = number_format($total);
   #echo $totalS;
 
-  $query = "INSERT INTO pembelian (id_user, nama_toko, id_barang, jumlah, total)
-          VALUES ('$idUse', '$namaToko', '$idBar', '$kuantitas', '$totalS')";
+  $query = "INSERT INTO pembelian (id_user, nama_user, alamat_kirim, kontak_user, nama_toko, alamat_toko, kontak_toko, id_barang, nama_barang, jumlah, total)
+          VALUES ('$idUse', '$namUs', '$alKir', '$KonUs', '$namaToko', '$alTok', '$konTok', '$idBar', '$namBar', '$kuantitas', '$totalS')";
   #$alert = '';
   if(mysqli_query($db,$query) ){
   	echo "<script type='text/javascript'> alert('Sukses! Pembelian Anda sedang kami proses.') </script>";

@@ -1,5 +1,8 @@
 <?php 
-session_start();
+if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    } 
 $db = mysqli_connect('localhost', 'root', '', 'agristall');
 if (isset($_GET['logout_user'])) {
 	  	session_destroy();

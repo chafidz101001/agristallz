@@ -145,7 +145,7 @@ if (isset($_POST['edit_user'])) {
     $query = "UPDATE user SET nama = '$nama', email = '$email', alamat = '$alamat', no_tlp = '$no_tlp' WHERE email = '" . $_SESSION['email'] . "'";
           
     if(mysqli_query($db,$query) ){
-    echo "<script type='text/javascript'> alert('Sukses! Data Anda Sudah Diganti! Silahkan Cek Profil Anda') </script>";
+    echo "<script type='text/javascript'> alert('Sukses! Data Anda Sudah Diganti! Silahkan Cek Profil Anda'); window.location = 'profile.php'; </script>";
   }
   else{
     echo "<script type='text/javascript'> alert('Maaf! Hidup Anda gagal.') </script>";

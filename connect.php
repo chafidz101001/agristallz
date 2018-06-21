@@ -9,6 +9,8 @@ $email = "";
 $alamat = "";
 $no_tlp = "";
 
+include "session.php";
+
 if (isset($_POST['register_user'])) {
   // receive all input values from the form
   $nama = mysqli_real_escape_string($db, $_POST['Nama']);
@@ -101,6 +103,35 @@ if (isset($_POST['log_user'])) {
   }
 }
 
+if (isset($_POST['log_adm'])) {
+  $email = mysqli_real_escape_string($db, $_POST['Email']);
+  $password = mysqli_real_escape_string($db, $_POST['Password']);
+  //echo $password;
+
+  if (empty($email)) {
+    array_push($errors, "Masukkan Email Anda!");
+  }
+  if (empty($password)) {
+    array_push($errors, "Masukkan Password Anda!");
+  }
+
+  if (count($errors) == 0) {
+    $password = md5($password);
+    $query = "SELECT * FROM admin WHERE email='$email' AND password='$password'";
+    $results = mysqli_query($db, $query);
+    if (mysqli_num_rows($results) > 0) {
+      session_start();
+      $_SESSION['email'] = $email;
+      $_SESSION['success'] = "Anda sudah masuk.";
+      #echo $password;
+      header('location: index.php');
+      
+    }else {
+      array_push($errors, "Email atau Password Anda Salah!");
+    }
+  }
+}
+
 
 function generateRandomString($length = 10) {
     $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -111,8 +142,6 @@ function generateRandomString($length = 10) {
     }
     return $randomString;
 }
-
-
 
 
 if (isset($_POST['forgot_user'])) {
@@ -142,11 +171,11 @@ if (isset($_POST['res_pass'])) {
   $password_1 = mysqli_real_escape_string($db, $_POST['Password_new']);
   $password_2 = mysqli_real_escape_string($db, $_POST['Password_new_cnf']);
 
-  $pass_check_query = "SELECT password FROM user WHERE email= '" . $_SESSION['email'] . "'";
+  $pass_check_query = "SELECT * FROM user WHERE email= '" . $_SESSION['email'] . "'";
   $result = mysqli_query($db, $pass_check_query);
   $passcheck = mysqli_fetch_assoc($result);
 
-  if ($password != $passcheck) {
+  if ($passcheck['password'] != $password) {
   array_push($errors, "Password Anda Salah");
 
   }
@@ -156,10 +185,14 @@ if (isset($_POST['res_pass'])) {
 
   $passwordhash = md5($password_1);
 
-
-  $query = "UPDATE user SET password = '$passwordhash' WHERE email = '" . $_SESSION['email'] . "'";
-  mysqli_query($db,$query);
-
+  if (count($errors) == 0) {
+    $query = "UPDATE user SET password = '$passwordhash' WHERE email = '" . $_SESSION['email'] . "'";
+    if(mysqli_query($db,$query)){
+      echo "<script type='text/javascript'> alert('Sukses! Password Sudah di Update!'); </script>";
+    } else {
+      echo "<script type='text/javascript'> alert('Maaf! Hidup Anda gagal.') </script>";
+    }
+  }
 }
 
 
