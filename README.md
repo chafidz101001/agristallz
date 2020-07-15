@@ -1,3 +1,3 @@
 # Agristall
 
-Folder utama Agristall.. (　＾∇＾)
+Folder utama Agristall.. 
